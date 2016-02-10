@@ -1,13 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2lC-zI-sB4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="UdO-16-ObY">
+            <objects>
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="wvI-dN-mkR" customClass="LoginViewController" customModule="iosapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aZS-e5-kew"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ob1-Td-uMB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Crb-F9-hIt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jampa_ruby_bg" translatesAutoresizingMaskIntoConstraints="NO" id="s0W-Mt-Rrb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jampagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5X-uA-9OL">
+                                <rect key="frame" x="205" y="20" width="190" height="41"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-bg-IfA">
+                                <rect key="frame" x="20" y="95" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-Hs-TZz">
+                                <rect key="frame" x="20" y="133" width="560" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpI-KL-JUC">
+                                <rect key="frame" x="277" y="171" width="47" height="30"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signIn:" destination="wvI-dN-mkR" eventType="touchUpInside" id="gI8-ac-3BJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXS-5P-Lz7">
+                                <rect key="frame" x="265" y="200" width="70" height="30"/>
+                                <state key="normal" title="new user?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newUser:" destination="wvI-dN-mkR" eventType="touchUpInside" id="Ujj-NK-POo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oXS-5P-Lz7" firstAttribute="top" secondItem="NpI-KL-JUC" secondAttribute="bottom" constant="-1" id="Dbx-8i-OBl"/>
+                            <constraint firstItem="VEX-bg-IfA" firstAttribute="top" secondItem="r5X-uA-9OL" secondAttribute="bottom" constant="34" id="KHB-GT-Ag9"/>
+                            <constraint firstItem="NpI-KL-JUC" firstAttribute="top" secondItem="6UH-Hs-TZz" secondAttribute="bottom" constant="8" id="P2a-J4-ve0"/>
+                            <constraint firstItem="s0W-Mt-Rrb" firstAttribute="top" secondItem="r5X-uA-9OL" secondAttribute="bottom" constant="-61" id="UjV-QJ-Bsu"/>
+                            <constraint firstItem="Ob1-Td-uMB" firstAttribute="top" secondItem="s0W-Mt-Rrb" secondAttribute="bottom" id="Ymu-Hb-08m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6UH-Hs-TZz" secondAttribute="trailing" id="bNt-hw-Lhv"/>
+                            <constraint firstItem="r5X-uA-9OL" firstAttribute="centerX" secondItem="s0W-Mt-Rrb" secondAttribute="centerX" id="dof-4O-PKa"/>
+                            <constraint firstItem="NpI-KL-JUC" firstAttribute="centerX" secondItem="Crb-F9-hIt" secondAttribute="centerX" id="eJO-GZ-AUY"/>
+                            <constraint firstItem="6UH-Hs-TZz" firstAttribute="top" secondItem="VEX-bg-IfA" secondAttribute="bottom" constant="8" id="efe-Kt-KcL"/>
+                            <constraint firstItem="s0W-Mt-Rrb" firstAttribute="top" secondItem="aZS-e5-kew" secondAttribute="bottom" constant="-20" id="ehT-eK-odb"/>
+                            <constraint firstItem="VEX-bg-IfA" firstAttribute="leading" secondItem="Crb-F9-hIt" secondAttribute="leadingMargin" id="g6k-68-R4p"/>
+                            <constraint firstItem="oXS-5P-Lz7" firstAttribute="centerX" secondItem="Crb-F9-hIt" secondAttribute="centerX" id="hvg-2K-GkR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VEX-bg-IfA" secondAttribute="trailing" id="juo-4r-fh2"/>
+                            <constraint firstItem="s0W-Mt-Rrb" firstAttribute="leading" secondItem="Crb-F9-hIt" secondAttribute="leadingMargin" constant="-20" id="orA-Es-rlU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s0W-Mt-Rrb" secondAttribute="trailing" constant="-20" id="ro3-H6-6dX"/>
+                            <constraint firstItem="6UH-Hs-TZz" firstAttribute="leading" secondItem="Crb-F9-hIt" secondAttribute="leadingMargin" id="tLM-dO-jW2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputEmail" destination="VEX-bg-IfA" id="KJT-xw-HXh"/>
+                        <outlet property="inputPassword" destination="6UH-Hs-TZz" id="8DB-gg-yiC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKd-wg-ws0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="-320"/>
+        </scene>
+        <!--Jampagram-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iosapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,9 +99,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Jampagram" id="aVm-Fc-6xp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1117" y="370"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QUd-m3-kuQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2lC-zI-sB4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EEl-gZ-We3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="R98-qZ-TlE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6O-Wk-jWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="370"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="jampa_ruby_bg" width="414" height="736"/>
+    </resources>
 </document>
