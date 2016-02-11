@@ -6,25 +6,34 @@
 //  Copyright © 2016 brunopaulino. All rights reserved.
 //
 
-class Photo {
+import SwiftyJSON
+
+final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerializable {
     var id:Int?
     var title:String?
     var imageUrl:String?
     
-    init(json: [String:AnyObject]) {
-        self.fillWithJSON(json)
+    init(title: String, imageURL: String) {
+        self.title = title
+        self.imageUrl = imageURL
     }
     
-    func fillWithJSON(dict:[String:AnyObject]) {
-        if let id = dict["id"] as? Int {
-            self.id = id
+    required init?(json: SwiftyJSON.JSON) {
+        self.id = json["id"].int
+        self.title = json["attriutes"]["title"].string
+        self.imageUrl = json["attriutes"]["image_url"].string
+    }
+    
+    static func collection(json: SwiftyJSON.JSON) -> [Photo] {
+        var photos: [Photo] = []
+        if let photosAsJSON = json["data"].array {
+            for photoJSON in photosAsJSON {
+                if let photo = Photo(json: photoJSON) {
+                    photos.append(photo)
+                }
+            }
         }
-        if let title = dict["title"] as? String {
-            self.title = title
-        }
-        if let imageUrl = dict["image_url"] as? String {
-            self.imageUrl = imageUrl
-        }
+        return photos
     }
     
     func toJSON() -> [String:AnyObject] {
@@ -35,6 +44,10 @@ class Photo {
         var photo = [String:AnyObject]()
         photo["photo"] = json
         return photo
+    }
+    
+    func description() -> String {
+        return "id: \(self.id)\nTitle: \(self.title)\nImage URL: \(self.imageUrl)"
     }
     
 }

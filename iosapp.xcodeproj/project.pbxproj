@@ -13,6 +13,8 @@
 		1505356C1C6ADEA300BFFEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1505356B1C6ADEA300BFFEA4 /* Assets.xcassets */; };
 		1505356F1C6ADEA300BFFEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1505356D1C6ADEA300BFFEA4 /* LaunchScreen.storyboard */; };
 		150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535781C6ADF4000BFFEA4 /* LoginViewController.swift */; };
+		1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */; };
+		1592C5241C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */; };
 		15DFC1DE1C6AEA7C00808C94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */; };
 		15DFC1DF1C6AEA7C00808C94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFC1DD1C6AEA7C00808C94 /* SwiftyJSON.framework */; };
 		15DFC1E41C6AEBED00808C94 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFC1E31C6AEBED00808C94 /* Photo.swift */; };
@@ -29,6 +31,8 @@
 		1505356E1C6ADEA300BFFEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150535701C6ADEA300BFFEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150535781C6ADF4000BFFEA4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObjectSerializable.swift; sourceTree = "<group>"; };
+		1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlamofireRequest+JSONSerializable.swift"; sourceTree = "<group>"; };
 		15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		15DFC1DD1C6AEA7C00808C94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		15DFC1E31C6AEBED00808C94 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		150535631C6ADEA300BFFEA4 /* iosapp */ = {
 			isa = PBXGroup;
 			children = (
+				1592C5201C6C29AA00C44EC1 /* Protocol */,
+				1592C51F1C6C299E00C44EC1 /* Extension */,
 				15DFC1E51C6AEE8C00808C94 /* Service */,
 				15DFC1E21C6AEBDE00808C94 /* Model */,
 				150535771C6ADF1A00BFFEA4 /* Controller */,
@@ -88,6 +94,22 @@
 				150535781C6ADF4000BFFEA4 /* LoginViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		1592C51F1C6C299E00C44EC1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		1592C5201C6C29AA00C44EC1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		15DFC1E11C6AEB7900808C94 /* libs */ = {
@@ -210,8 +232,10 @@
 				15DFC1E71C6AEEAC00808C94 /* APIService.swift in Sources */,
 				150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */,
 				150535671C6ADEA300BFFEA4 /* ViewController.swift in Sources */,
+				1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */,
 				15DFC1E91C6AF5B900808C94 /* Router.swift in Sources */,
 				150535651C6ADEA300BFFEA4 /* AppDelegate.swift in Sources */,
+				1592C5241C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

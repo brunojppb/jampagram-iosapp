@@ -24,9 +24,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn(sender: AnyObject) {
+        APIService.sharedInstance.signInUser(inputEmail.text!, password: inputPassword.text!) { (success) -> Void in
+            if success {
+                //TODO: remove login screen. show main view
+            } else {
+                //TODO: Show error message
+                
+            }
+        }
     }
     
     @IBAction func newUser(sender: AnyObject) {
+        
     }
     
     

@@ -13,7 +13,8 @@ enum Router: URLRequestConvertible {
     static let BASE_URL = "http://localhost:3000"
     static var AUTH_TOKEN: String?
     static var AUTH_CLIENT: String?
-    static var AUTH_VALIDITY: String?
+    static var AUTH_EXPIRY: String?
+    static var AUTH_UID: String?
     
     case signInUser([String:AnyObject])
     case signUpUser([String:AnyObject])
@@ -42,7 +43,7 @@ enum Router: URLRequestConvertible {
     var path: String {
         switch self {
         case .signInUser:
-            return "/api/v1/auth"
+            return "/api/v1/auth/sign_in"
         case .signUpUser:
             return "/api/v1/auth"
         case .signOutUser(let userId):
@@ -64,10 +65,12 @@ enum Router: URLRequestConvertible {
         
         if let token = Router.AUTH_TOKEN,
             let client = Router.AUTH_CLIENT,
-            let validity = Router.AUTH_VALIDITY {
-                mutableURLRequest.setValue("access-token", forKey: token)
-                mutableURLRequest.setValue("Client", forKey: client)
-                mutableURLRequest.setValue("validity", forKey: validity)
+            let expiry = Router.AUTH_EXPIRY,
+            let uid = Router.AUTH_UID {
+                mutableURLRequest.setValue(token, forHTTPHeaderField: "access-token")
+                mutableURLRequest.setValue(client, forHTTPHeaderField: "Client")
+                mutableURLRequest.setValue(expiry, forHTTPHeaderField: "expiry")
+                mutableURLRequest.setValue(uid, forHTTPHeaderField: "uid")
             
         }
         
