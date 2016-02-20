@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosViewController: UITableViewController, LoadPhotosDelegate {
     
-    var dataSource = [1,2,3,4,5,6]
+    var dataSource = [Photo]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,18 @@ class PhotosViewController: UITableViewController, LoadPhotosDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell")
-        return cell!
+        let photo = self.dataSource[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoCell
+        cell.configureImageForCell(photo.imageUrl!)
+        return cell
     }
     
     func didLoginWithSuccess() -> Void {
         print("loading photos")
         APIService.sharedInstance.loadPhotos { (success, photos) -> Void in
             print("Success: \(success)")
-            let photo = photos![0]
-            print("Photo: \(photo.imageUrl)")
+            self.dataSource = photos!
+            self.tableView.reloadData()
         }
     }
 }
