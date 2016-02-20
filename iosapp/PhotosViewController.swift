@@ -20,7 +20,7 @@ class PhotosViewController: UITableViewController, LoadPhotosDelegate {
         if !APIService.userIsLoggedIn() {
             let loginViewController = UIStoryboard.loginViewController()
             loginViewController.delegate = self
-            self.presentViewController(loginViewController, animated: true, completion: nil)
+            self.presentViewController(loginViewController, animated: false, completion: nil)
         }
     }
     
