@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		150535651C6ADEA300BFFEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535641C6ADEA300BFFEA4 /* AppDelegate.swift */; };
-		150535671C6ADEA300BFFEA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535661C6ADEA300BFFEA4 /* ViewController.swift */; };
+		150535671C6ADEA300BFFEA4 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535661C6ADEA300BFFEA4 /* PhotosViewController.swift */; };
 		1505356A1C6ADEA300BFFEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150535681C6ADEA300BFFEA4 /* Main.storyboard */; };
 		1505356C1C6ADEA300BFFEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1505356B1C6ADEA300BFFEA4 /* Assets.xcassets */; };
 		1505356F1C6ADEA300BFFEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1505356D1C6ADEA300BFFEA4 /* LaunchScreen.storyboard */; };
 		150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535781C6ADF4000BFFEA4 /* LoginViewController.swift */; };
+		156259FA1C78F460001611A3 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156259F91C78F460001611A3 /* PhotoCell.swift */; };
+		156259FD1C78FAFA001611A3 /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */; };
 		1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */; };
 		1592C5241C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */; };
 		15DFC1DE1C6AEA7C00808C94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */; };
@@ -25,12 +27,14 @@
 /* Begin PBXFileReference section */
 		150535611C6ADEA300BFFEA4 /* iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		150535641C6ADEA300BFFEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		150535661C6ADEA300BFFEA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		150535661C6ADEA300BFFEA4 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		150535691C6ADEA300BFFEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1505356B1C6ADEA300BFFEA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1505356E1C6ADEA300BFFEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150535701C6ADEA300BFFEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150535781C6ADF4000BFFEA4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		156259F91C78F460001611A3 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
 		1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObjectSerializable.swift; sourceTree = "<group>"; };
 		1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlamofireRequest+JSONSerializable.swift"; sourceTree = "<group>"; };
 		15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		150535631C6ADEA300BFFEA4 /* iosapp */ = {
 			isa = PBXGroup;
 			children = (
+				156259FB1C78FAE1001611A3 /* Util */,
+				156259F81C78F452001611A3 /* CustomCell */,
 				1592C5201C6C29AA00C44EC1 /* Protocol */,
 				1592C51F1C6C299E00C44EC1 /* Extension */,
 				15DFC1E51C6AEE8C00808C94 /* Service */,
@@ -90,10 +96,26 @@
 		150535771C6ADF1A00BFFEA4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				150535661C6ADEA300BFFEA4 /* ViewController.swift */,
+				150535661C6ADEA300BFFEA4 /* PhotosViewController.swift */,
 				150535781C6ADF4000BFFEA4 /* LoginViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		156259F81C78F452001611A3 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				156259F91C78F460001611A3 /* PhotoCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		156259FB1C78FAE1001611A3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		1592C51F1C6C299E00C44EC1 /* Extension */ = {
@@ -229,9 +251,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15DFC1E41C6AEBED00808C94 /* Photo.swift in Sources */,
+				156259FA1C78F460001611A3 /* PhotoCell.swift in Sources */,
+				156259FD1C78FAFA001611A3 /* StoryboardUtil.swift in Sources */,
 				15DFC1E71C6AEEAC00808C94 /* APIService.swift in Sources */,
 				150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */,
-				150535671C6ADEA300BFFEA4 /* ViewController.swift in Sources */,
+				150535671C6ADEA300BFFEA4 /* PhotosViewController.swift in Sources */,
 				1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */,
 				15DFC1E91C6AF5B900808C94 /* Router.swift in Sources */,
 				150535651C6ADEA300BFFEA4 /* AppDelegate.swift in Sources */,

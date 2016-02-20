@@ -35,6 +35,7 @@ class APIService {
                     Router.AUTH_EXPIRY = expiry
                     Router.AUTH_TOKEN = accessToken
                     Router.AUTH_UID = email
+                    completionHandler(success: true)
                 }
             }
         }
@@ -43,9 +44,37 @@ class APIService {
     func savePhoto(photo: Photo, completionHandler: (success: Bool, photo: Photo?) -> Void) {
         let json = photo.toJSON()
         Alamofire.request(Router.createPhoto(json)).responseObject { (response: Response<Photo, NSError>) -> Void in
-            if response.result.error != nil {
+            if response.result.error == nil {
                 completionHandler(success: true, photo: response.result.value)
             }
         }
+    }
+    
+    func loadPhotos(completionHandler: (success: Bool, photos: [Photo]?) -> Void) {
+        Alamofire.request(Router.getPhotos).responseCollection { (response: Response<[Photo], NSError>) -> Void in
+            guard response.result.error == nil else {
+                print("Error calling \(Router.getPhotos)")
+                print("Error: \(response.result.error)")
+                completionHandler(success: false, photos: nil)
+                return
+            }
+            
+            if let httpResponse = response.response {
+                if 200...210 ~= httpResponse.statusCode {
+                    completionHandler(success: true, photos: response.result.value)
+                }
+                else if 400...499 ~= httpResponse.statusCode {
+                    print("Loading photos error. Status: \(httpResponse.statusCode)")
+                    completionHandler(success: false, photos: nil)
+                }
+            }
+        }
+    }
+    
+    class func userIsLoggedIn() -> Bool {
+        guard (Router.AUTH_CLIENT != nil) else {
+            return false
+        }
+        return true
     }
 }

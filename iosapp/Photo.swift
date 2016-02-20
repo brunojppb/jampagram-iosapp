@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerializable {
+final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerializable, CustomStringConvertible {
     var id:Int?
     var title:String?
     var imageUrl:String?
@@ -19,9 +19,11 @@ final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerial
     }
     
     required init?(json: SwiftyJSON.JSON) {
-        self.id = json["id"].int
-        self.title = json["attriutes"]["title"].string
-        self.imageUrl = json["attriutes"]["image_url"].string
+        print("data: \(json)")
+        self.id = Int(json["id"].string!)
+        self.title = json["attributes"]["title"].string
+        self.imageUrl = json["attributes"]["image_url"].string
+        print("Photo: \(self)")
     }
     
     static func collection(json: SwiftyJSON.JSON) -> [Photo] {
@@ -46,7 +48,7 @@ final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerial
         return photo
     }
     
-    func description() -> String {
+    var description: String {
         return "id: \(self.id)\nTitle: \(self.title)\nImage URL: \(self.imageUrl)"
     }
     

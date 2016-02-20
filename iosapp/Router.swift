@@ -19,7 +19,7 @@ enum Router: URLRequestConvertible {
     case signInUser([String:AnyObject])
     case signUpUser([String:AnyObject])
     case signOutUser(String)
-    case getPhotos(String)
+    case getPhotos
     case createPhoto([String:AnyObject])
     case destroyPhoto(String)
     
@@ -81,6 +81,8 @@ enum Router: URLRequestConvertible {
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
         case .createPhoto(let params):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: params).0
+        case .getPhotos:
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: nil).0
         default:
             return mutableURLRequest
         }

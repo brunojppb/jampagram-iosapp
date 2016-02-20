@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol LoadPhotosDelegate {
+    func didLoginWithSuccess() -> Void
+}
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
+    var delegate : LoadPhotosDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,12 @@ class LoginViewController: UIViewController {
         APIService.sharedInstance.signInUser(inputEmail.text!, password: inputPassword.text!) { (success) -> Void in
             if success {
                 //TODO: remove login screen. show main view
+                print("Login success")
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.delegate?.didLoginWithSuccess()
+                })
             } else {
+                print("Login error")
                 //TODO: Show error message
                 
             }
