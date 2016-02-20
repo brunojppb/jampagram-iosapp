@@ -31,7 +31,7 @@ class PhotosViewController: UITableViewController, LoadPhotosDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let photo = self.dataSource[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoCell
-        cell.configureImageForCell(photo.imageUrl!)
+        cell.configureCellForPhoto(photo)
         return cell
     }
     

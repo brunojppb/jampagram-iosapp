@@ -15,9 +15,10 @@ class PhotoCell: UITableViewCell {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var photoTitle: UILabel!
     
-    func configureImageForCell(url: String) {
+    func configureCellForPhoto(photo: Photo) {
         self.photoImage.layer.cornerRadius = 5
-        let imageURL = NSURL(string: "\(Router.BASE_URL)/\(url)")
+        let imageURL = NSURL(string: "\(Router.BASE_URL)/\(photo.imageUrl!)")
         self.photoImage.sd_setImageWithURL(imageURL)
-    }
+        self.photoTitle.text = photo.title
+    }    
 }
