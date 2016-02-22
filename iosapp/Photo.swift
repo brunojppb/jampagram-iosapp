@@ -12,14 +12,15 @@ final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerial
     var id:Int?
     var title:String?
     var imageUrl:String?
+    var imageDataString:String?
     
-    init(title: String, imageURL: String) {
+    init(title: String?, imageURL: String?, imageDataString: String?) {
         self.title = title
         self.imageUrl = imageURL
+        self.imageDataString = imageDataString
     }
     
     required init?(json: SwiftyJSON.JSON) {
-        print("data: \(json)")
         self.id = Int(json["id"].string!)
         self.title = json["attributes"]["title"].string
         self.imageUrl = json["attributes"]["image_url"].string
@@ -40,12 +41,17 @@ final class Photo : ResponseJSONObjectSerializable, ResponseJSONCollectionSerial
     
     func toJSON() -> [String:AnyObject] {
         var json = [String:AnyObject]()
-        if let id = self.id { json["id"] = id }
+        var data = [String:AnyObject]()
+        var imageFileData = [String: AnyObject]()
         if let title = self.title { json["title"] = title }
-        if let imageUrl = self.imageUrl { json["image_url"] = imageUrl }
-        var photo = [String:AnyObject]()
-        photo["photo"] = json
-        return photo
+        if let imageDataString = self.imageDataString {
+            imageFileData["file"] = imageDataString
+            imageFileData["extension"] = "jpg"
+            imageFileData["content_type"] = "image/jpg"
+        }
+        json["image_file"] = imageFileData
+        data["data"] = ["attributes": json]
+        return data
     }
     
     var description: String {

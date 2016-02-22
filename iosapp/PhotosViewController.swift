@@ -14,6 +14,12 @@ class PhotosViewController: UITableViewController, LoadPhotosDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = UIColor.colorWithRGB(207, green: 0, blue: 15, alpha: 1)
+        self.refreshControl?.tintColor = UIColor.whiteColor()
+        self.refreshControl?.addTarget(self, action: "pullToRefresh", forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,5 +49,21 @@ class PhotosViewController: UITableViewController, LoadPhotosDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    func pullToRefresh() {
+        APIService.sharedInstance.loadPhotos { (success, photos) -> Void in
+            if success {
+                self.dataSource = photos!
+                self.tableView.reloadData()
+                if let refreshControl = self.refreshControl {
+                    refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
 }
-

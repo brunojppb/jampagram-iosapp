@@ -30,7 +30,8 @@ extension Alamofire.Request {
             switch result {
             case .Success(let value):
                 let json = SwiftyJSON.JSON(value)
-                if let object = T(json: json) {
+                let jsonData = json["data"]
+                if let object = T(json: jsonData) {
                     return .Success(object)
                 }
                 else {

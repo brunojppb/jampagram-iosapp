@@ -18,6 +18,8 @@
 		156259FD1C78FAFA001611A3 /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */; };
 		1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */; };
 		1592C5241C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */; };
+		15D429E31C79118400CC5BBF /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D429E21C79118400CC5BBF /* NewPhotoViewController.swift */; };
+		15D429E51C7BA22300CC5BBF /* UICollorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D429E41C7BA22300CC5BBF /* UICollorExtensions.swift */; };
 		15DFC1DE1C6AEA7C00808C94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */; };
 		15DFC1DF1C6AEA7C00808C94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFC1DD1C6AEA7C00808C94 /* SwiftyJSON.framework */; };
 		15DFC1E41C6AEBED00808C94 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFC1E31C6AEBED00808C94 /* Photo.swift */; };
@@ -35,11 +37,13 @@
 		150535701C6ADEA300BFFEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150535781C6ADF4000BFFEA4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		153833BD1C7905A800E94DD0 /* iosapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iosapp-Bridging-Header.h"; sourceTree = "<group>"; };
-		153833C01C79067F00E94DD0 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		153833C01C79067F00E94DD0 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		156259F91C78F460001611A3 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
 		1592C5211C6C29D900C44EC1 /* JSONObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObjectSerializable.swift; sourceTree = "<group>"; };
 		1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlamofireRequest+JSONSerializable.swift"; sourceTree = "<group>"; };
+		15D429E21C79118400CC5BBF /* NewPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoViewController.swift; sourceTree = "<group>"; };
+		15D429E41C7BA22300CC5BBF /* UICollorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollorExtensions.swift; sourceTree = "<group>"; };
 		15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		15DFC1DD1C6AEA7C00808C94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		15DFC1E31C6AEBED00808C94 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -64,7 +68,6 @@
 		150535581C6ADEA300BFFEA4 = {
 			isa = PBXGroup;
 			children = (
-				153833C01C79067F00E94DD0 /* WebImage.framework */,
 				150535631C6ADEA300BFFEA4 /* iosapp */,
 				150535621C6ADEA300BFFEA4 /* Products */,
 			);
@@ -104,6 +107,7 @@
 			children = (
 				150535661C6ADEA300BFFEA4 /* PhotosViewController.swift */,
 				150535781C6ADF4000BFFEA4 /* LoginViewController.swift */,
+				15D429E21C79118400CC5BBF /* NewPhotoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1592C5231C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift */,
+				15D429E41C7BA22300CC5BBF /* UICollorExtensions.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 		15DFC1E11C6AEB7900808C94 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				153833C01C79067F00E94DD0 /* WebImage.framework */,
 				15DFC1DC1C6AEA7C00808C94 /* Alamofire.framework */,
 				15DFC1DD1C6AEA7C00808C94 /* SwiftyJSON.framework */,
 			);
@@ -258,8 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15DFC1E41C6AEBED00808C94 /* Photo.swift in Sources */,
+				15D429E31C79118400CC5BBF /* NewPhotoViewController.swift in Sources */,
 				156259FA1C78F460001611A3 /* PhotoCell.swift in Sources */,
 				156259FD1C78FAFA001611A3 /* StoryboardUtil.swift in Sources */,
+				15D429E51C7BA22300CC5BBF /* UICollorExtensions.swift in Sources */,
 				15DFC1E71C6AEEAC00808C94 /* APIService.swift in Sources */,
 				150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */,
 				150535671C6ADEA300BFFEA4 /* PhotosViewController.swift in Sources */,

@@ -102,7 +102,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jampa_ruby_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-a8-blQ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jampa_ruby_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-a8-blQ">
                                             <rect key="frame" x="8" y="8" width="584" height="245"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="245" id="9yf-n5-ygz"/>
@@ -136,12 +136,75 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Jampagram" id="qjI-Mj-xAM">
                         <barButtonItem key="leftBarButtonItem" title="Logoff" id="MMK-4K-dNR"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hh6-MC-j1N"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hh6-MC-j1N">
+                            <connections>
+                                <segue destination="BsT-Dj-ktH" kind="presentation" identifier="NewPhoto" id="Oa9-6q-wJ4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cv-F7-3hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="954" y="362"/>
+        </scene>
+        <!--New Photo-->
+        <scene sceneID="z2s-8R-LXJ">
+            <objects>
+                <viewController id="6dW-rn-A7Y" customClass="NewPhotoViewController" customModule="iosapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lJm-aq-4sg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jbS-9f-Jge"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iBF-G4-7c3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8OW-qQ-nnY">
+                                <rect key="frame" x="20" y="276" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T3-sL-SBt">
+                                <rect key="frame" x="189" y="72" width="222" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="Z3D-9q-F3U"/>
+                                    <constraint firstAttribute="height" constant="181" id="lfB-zl-ZMd"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="camera"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="6dW-rn-A7Y" eventType="touchUpInside" id="SbX-3s-kbb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8OW-qQ-nnY" firstAttribute="top" secondItem="1T3-sL-SBt" secondAttribute="bottom" constant="23" id="GGm-2I-Caj"/>
+                            <constraint firstItem="1T3-sL-SBt" firstAttribute="top" secondItem="lJm-aq-4sg" secondAttribute="bottom" constant="8" id="WnA-fY-mdm"/>
+                            <constraint firstItem="8OW-qQ-nnY" firstAttribute="leading" secondItem="iBF-G4-7c3" secondAttribute="leadingMargin" id="gn7-YI-5zI"/>
+                            <constraint firstItem="1T3-sL-SBt" firstAttribute="centerX" secondItem="iBF-G4-7c3" secondAttribute="centerX" id="hop-Sl-G8z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8OW-qQ-nnY" secondAttribute="trailing" id="naO-8d-2aM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Photo" id="cVh-4h-Zqp">
+                        <barButtonItem key="leftBarButtonItem" image="Trash" id="4lg-SQ-Apf">
+                            <connections>
+                                <action selector="discardPhoto:" destination="6dW-rn-A7Y" id="gPh-FU-UaW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Disc" id="YLo-0X-kS3">
+                            <connections>
+                                <action selector="sendPhoto:" destination="6dW-rn-A7Y" id="6av-4R-Vf0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="takePhotoButton" destination="1T3-sL-SBt" id="eWc-sU-vul"/>
+                        <outlet property="titleTextField" destination="8OW-qQ-nnY" id="cMr-pn-Efo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6e4-qa-uAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="362"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZJ3-KA-8ce">
@@ -161,8 +224,30 @@
             </objects>
             <point key="canvasLocation" x="305" y="362"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LOh-p0-gIN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BsT-Dj-ktH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c4R-6w-RRo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6dW-rn-A7Y" kind="relationship" relationship="rootViewController" id="sdb-20-jfD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrm-zB-dOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621" y="362"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Disc" width="23" height="23"/>
+        <image name="Trash" width="23" height="30"/>
+        <image name="camera" width="278" height="228"/>
         <image name="jampa_ruby_bg" width="414" height="736"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
