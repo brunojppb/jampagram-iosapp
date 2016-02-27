@@ -13,6 +13,7 @@
 		1505356C1C6ADEA300BFFEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1505356B1C6ADEA300BFFEA4 /* Assets.xcassets */; };
 		1505356F1C6ADEA300BFFEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1505356D1C6ADEA300BFFEA4 /* LaunchScreen.storyboard */; };
 		150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150535781C6ADF4000BFFEA4 /* LoginViewController.swift */; };
+		150923411C81EAD100439F1C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150923401C81EAD100439F1C /* SignupViewController.swift */; };
 		153833C11C79067F00E94DD0 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153833C01C79067F00E94DD0 /* WebImage.framework */; };
 		156259FA1C78F460001611A3 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156259F91C78F460001611A3 /* PhotoCell.swift */; };
 		156259FD1C78FAFA001611A3 /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156259FC1C78FAFA001611A3 /* StoryboardUtil.swift */; };
@@ -36,6 +37,7 @@
 		1505356E1C6ADEA300BFFEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150535701C6ADEA300BFFEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150535781C6ADF4000BFFEA4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		150923401C81EAD100439F1C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		153833BD1C7905A800E94DD0 /* iosapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iosapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		153833C01C79067F00E94DD0 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		156259F91C78F460001611A3 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				150535661C6ADEA300BFFEA4 /* PhotosViewController.swift */,
 				150535781C6ADF4000BFFEA4 /* LoginViewController.swift */,
 				15D429E21C79118400CC5BBF /* NewPhotoViewController.swift */,
+				150923401C81EAD100439F1C /* SignupViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				150535791C6ADF4000BFFEA4 /* LoginViewController.swift in Sources */,
 				150535671C6ADEA300BFFEA4 /* PhotosViewController.swift in Sources */,
 				1592C5221C6C29D900C44EC1 /* JSONObjectSerializable.swift in Sources */,
+				150923411C81EAD100439F1C /* SignupViewController.swift in Sources */,
 				15DFC1E91C6AF5B900808C94 /* Router.swift in Sources */,
 				150535651C6ADEA300BFFEA4 /* AppDelegate.swift in Sources */,
 				1592C5241C6C2B9000C44EC1 /* AlamofireRequest+JSONSerializable.swift in Sources */,

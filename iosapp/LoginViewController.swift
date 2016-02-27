@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     var delegate : LoadPhotosDelegate?
     
     override func viewDidLoad() {
@@ -23,18 +24,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn(sender: AnyObject) {
+        self.loadingSpinner.hidden = false
+        self.loadingSpinner.startAnimating()
+        inputEmail.becomeFirstResponder()
+        inputEmail.resignFirstResponder()
         APIService.sharedInstance.signInUser(inputEmail.text!, password: inputPassword.text!) { (success) -> Void in
             if success {
                 //TODO: remove login screen. show main view
-                print("Login success")
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
                     self.delegate?.didLoginWithSuccess()
                 })
             } else {
-                print("Login error")
-                //TODO: Show error message
+                let alertController = UIAlertController(title: "Sign in Error", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                alertController.addAction(okAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
                 
             }
+            self.loadingSpinner.stopAnimating()
         }
     }
     

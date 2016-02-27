@@ -15,6 +15,37 @@ class APIService {
     // That way, we can ensure the it will a singleton
     private init() {}
     
+    func signupUser(email: String, password: String, passwordConfirmation: String, completionHandler: (success: Bool) -> Void) {
+        let json = [
+            "email": email,
+            "password": password,
+            "password_confirmation": passwordConfirmation,
+            "confirm_success_url": "http://localhost:3000"
+        ]
+        
+        Alamofire.request(Router.signUpUser(json)).responseJSON { (response) -> Void in
+            guard response.result.error == nil else {
+                print("Error calling \(Router.signUpUser(json))")
+                print("Error: \(response.result.error)")
+                completionHandler(success: false)
+                return
+            }
+            
+            if let httpResponse = response.response {
+                if 200...210 ~= httpResponse.statusCode {
+                    self.storeUserAuthHeaders(httpResponse.allHeaderFields)
+                    completionHandler(success: true)
+                }
+                else {
+                    completionHandler(success: false)
+                }
+            }
+        }
+        
+        
+        
+    }
+    
     func signInUser(email: String, password: String, completionHandler: (success: Bool) -> Void) {
         let json = ["email": email, "password": password]
         Alamofire.request(Router.signInUser(json)).responseJSON { (response) -> Void in
@@ -26,16 +57,11 @@ class APIService {
             }
             if let httpResponse = response.response {
                 if 200...210 ~= httpResponse.statusCode{
-                    let headers = httpResponse.allHeaderFields
-                    let client = headers["Client"] as! String
-                    let accessToken = headers["access-token"] as! String
-                    let expiry = headers["expiry"] as! String
-                    // Cache user data to send in further request headers
-                    Router.AUTH_CLIENT = client
-                    Router.AUTH_EXPIRY = expiry
-                    Router.AUTH_TOKEN = accessToken
-                    Router.AUTH_UID = email
+                    self.storeUserAuthHeaders(httpResponse.allHeaderFields)
                     completionHandler(success: true)
+                }
+                else {
+                    completionHandler(success: false)
                 }
             }
         }
@@ -76,5 +102,17 @@ class APIService {
             return false
         }
         return true
+    }
+    
+    private func storeUserAuthHeaders(headers: [NSObject: AnyObject]) {
+        let client = headers["Client"] as! String
+        let accessToken = headers["access-token"] as! String
+        let expiry = headers["expiry"] as! String
+        let uid = headers["uid"] as! String
+        // Cache user data to send in further request headers
+        Router.AUTH_CLIENT = client
+        Router.AUTH_EXPIRY = expiry
+        Router.AUTH_TOKEN = accessToken
+        Router.AUTH_UID = uid
     }
 }

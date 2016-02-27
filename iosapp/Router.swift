@@ -10,7 +10,7 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     
-    static let BASE_URL = "http://192.168.1.102:3000"
+    static let BASE_URL = "http://192.168.1.104:3000"
     static var AUTH_TOKEN: String?
     static var AUTH_CLIENT: String?
     static var AUTH_EXPIRY: String?
